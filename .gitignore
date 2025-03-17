@@ -1,0 +1,9 @@
+# Ignore SQLite database
+db.sqlite3
+
+# Ignore Python compiled files
+__pycache__/
+*.pyc
+
+# Ignore directory
+myenv/
