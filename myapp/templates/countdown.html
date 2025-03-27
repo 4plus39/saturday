@@ -1,0 +1,31 @@
+<!-- 倒數計時顯示區域 -->
+<div id="countdown" class="countdown text-center text-blue-600 mb-8">載入中...</div>
+
+<script>
+    // 更新倒數計時器的函數
+    function updateCountdown() {
+        // 計算倒數時間
+        const nextSaturday = new Date("{{ next_saturday }}");
+        const now = new Date();
+        const timeDifference = nextSaturday - now;
+
+        // 計算天、時、分、秒
+        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+        // 更新頁面內容，補零顯示
+        document.getElementById("countdown").innerHTML = 
+            "距離星期六還有: " + days + "天 " + 
+            String(hours).padStart(2, '0') + "時 " + 
+            String(minutes).padStart(2, '0') + "分 " + 
+            String(seconds).padStart(2, '0') + "秒";
+    }
+
+    // 每秒更新一次倒數計時
+    setInterval(updateCountdown, 1000);
+
+    // 頁面加載時立即更新倒數計時
+    window.onload = updateCountdown;
+</script> 

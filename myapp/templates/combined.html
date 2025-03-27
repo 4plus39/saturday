@@ -4,116 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>倒數計時與星期六天氣預報</title>
-    <!-- 引入 Tailwind CSS -->
+    <!-- 引入 Tailwind CSS 框架用於樣式設計 -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
+        /* 倒數計時器的樣式設定 */
         .countdown {
             font-size: 1.5rem;
             font-weight: bold;
             margin-bottom: 20px;
         }
     </style>
-    <script>
-        function updateCountdown() {
-            // 計算倒數時間
-            const nextSaturday = new Date("{{ next_saturday }}");
-            const now = new Date();
-            const timeDifference = nextSaturday - now;
-
-            // 計算天、時、分、秒
-            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-            // 更新頁面內容
-            document.getElementById("countdown").innerHTML = 
-                "距離星期六還有: " + days + "天 " + 
-                String(hours).padStart(2, '0') + "時 " + 
-                String(minutes).padStart(2, '0') + "分 " + 
-                String(seconds).padStart(2, '0') + "秒";
-        }
-
-        // 每秒更新一次
-        setInterval(updateCountdown, 1000);
-
-        // 頁面加載時立即更新
-        window.onload = updateCountdown;
-    </script>
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-6xl mx-auto">
-        <div id="countdown" class="countdown text-center text-blue-600 mb-8">載入中...</div>
-
-        <h1 class="text-3xl font-bold text-center mb-6">天氣預報 {{ target_date }} </h1>
-        {% if weather_data_list %}
-            <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                <table class="min-w-full">
-                    <thead class="bg-gray-800 text-white">
-                        <tr>
-                            <th class="py-3 px-4 text-center">地區</th>
-                            <th class="py-3 px-4 text-center">時間</th>
-                            <th class="py-3 px-4 text-center">天氣現象</th>
-                            <th class="py-3 px-4 text-center">溫度</th>
-                            <th class="py-3 px-4 text-center">相對濕度</th>
-                            <th class="py-3 px-4 text-center">風速</th>
-                            <th class="py-3 px-4 text-center">降雨機率</th>
-                            <th class="py-3 px-4 text-center">紫外線指數</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-700">
-                        {% for weather_info in weather_data_list %}
-                            {% for time_data in weather_info.天氣現象 %}
-                                <tr class="hover:bg-gray-50 transition-colors">
-                                    <td class="py-3 px-4 border-t text-center">{{ weather_info.地區 }}</td>
-                                    <td class="py-3 px-4 border-t text-center">
-                                        {{ time_data.StartTime|slice:"11:16" }} ~ {{ time_data.EndTime|slice:"11:16" }}
-                                    </td>
-                                    <td class="py-3 px-4 border-t text-center">{{ time_data.ElementValue.0.Weather }}</td>
-                                    <td class="py-3 px-4 border-t text-center">
-                                        {% for temp in weather_info.平均溫度 %}
-                                            {% if temp.StartTime == time_data.StartTime %}
-                                                {{ temp.ElementValue.0.Temperature }}°C
-                                            {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                    <td class="py-3 px-4 border-t text-center">
-                                        {% for humidity in weather_info.平均相對濕度 %}
-                                            {% if humidity.StartTime == time_data.StartTime %}
-                                                {{ humidity.ElementValue.0.RelativeHumidity }}%
-                                            {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                    <td class="py-3 px-4 border-t text-center">
-                                        {% for wind in weather_info.風速 %}
-                                            {% if wind.StartTime == time_data.StartTime %}
-                                                {{ wind.ElementValue.0.WindSpeed }} m/s
-                                            {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                    <td class="py-3 px-4 border-t text-center">
-                                        {% for pop in weather_info.12小時降雨機率 %}
-                                            {% if pop.StartTime == time_data.StartTime %}
-                                                {{ pop.ElementValue.0.ProbabilityOfPrecipitation }}%
-                                            {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                    <td class="py-3 px-4 border-t text-center">
-                                        {% for uv in weather_info.紫外線指數 %}
-                                            {% if uv.StartTime == time_data.StartTime %}
-                                                {{ uv.ElementValue.0.UVIndex }}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        {% else %}
-            <p class="text-center text-red-500">無法獲取氣象資訊。</p>
-        {% endif %}
+        {% include "countdown.html" %}
+        {% include "weather.html" %}
     </div>
 </body>
 </html>

@@ -6,41 +6,177 @@
     <title>中壢區星期六天氣預報</title>
 </head>
 <body>
-    <h1>中壢區星期六天氣預報</h1>
-    
-    {% if weather_info %}
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>時間</th>
-                    <th>天氣現象</th>
-                    <th>溫度</th>
-                    <th>相對濕度</th>
-                    <th>風速</th>
-                    <th>降雨機率</th>
-                    <th>紫外線指數</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for time_data in weather_info.天氣現象 %}
+    <!-- 天氣預報標題 -->
+    <h1 class="text-3xl font-bold text-center mb-6">天氣預報 {{ target_date }} </h1>
+
+    {% if weather_data_list %}
+        <!-- 桌面版天氣預報表格 -->
+        <div class="hidden md:block bg-white shadow-md rounded-lg overflow-hidden">
+            <table class="min-w-full">
+                <!-- 表格標題列 -->
+                <thead class="bg-gray-800 text-white">
                     <tr>
-                        <td>
-                            {% with start_time=time_data.StartTime|slice:":16" end_time=time_data.EndTime|slice:":16" %}
-                                {{ start_time|slice:"11:16" }} - {{ end_time|slice:"11:16" }}
-                            {% endwith %}
-                        </td>
-                        <td>{{ time_data.ElementValue.0.Weather }}</td>
-                        <td>{{ weather_info.平均溫度.0.ElementValue.0.Temperature }}°C</td>
-                        <td>{{ weather_info.平均相對濕度.0.ElementValue.0.RelativeHumidity }}%</td>
-                        <td>{{ weather_info.風速.0.ElementValue.0.WindSpeed }} m/s</td>
-                        <td>{{ weather_info.12小時降雨機率.0.ElementValue.0.ProbabilityOfPrecipitation }}%</td>
-                        <td>{{ weather_info.紫外線指數.0.ElementValue.0.UVIndex }}</td>
+                        <th class="py-3 px-4 text-center">地區</th>
+                        <th class="py-3 px-4 text-center">時間</th>
+                        <th class="py-3 px-4 text-center">天氣現象</th>
+                        <th class="py-3 px-4 text-center">溫度</th>
+                        <th class="py-3 px-4 text-center">相對濕度</th>
+                        <th class="py-3 px-4 text-center">風速</th>
+                        <th class="py-3 px-4 text-center">降雨機率</th>
+                        <th class="py-3 px-4 text-center">紫外線指數</th>
                     </tr>
+                </thead>
+                <!-- 表格內容 -->
+                <tbody class="text-gray-700">
+                    {% for weather_info in weather_data_list %}
+                        {% for time_data in weather_info.天氣現象 %}
+                            <tr class="hover:bg-gray-50 transition-colors">
+                                <!-- 地區名稱 -->
+                                <td class="py-3 px-4 border-t text-center">{{ weather_info.地區 }}</td>
+                                <!-- 時間範圍 -->
+                                <td class="py-3 px-4 border-t text-center">
+                                    {{ time_data.StartTime|slice:"11:16" }} ~ {{ time_data.EndTime|slice:"11:16" }}
+                                </td>
+                                <!-- 天氣現象 -->
+                                <td class="py-3 px-4 border-t text-center">{{ time_data.ElementValue.0.Weather }}</td>
+                                <!-- 溫度範圍 -->
+                                <td class="py-3 px-4 border-t text-center">
+                                    {% for min_temp in weather_info.最低溫度 %}
+                                        {% for max_temp in weather_info.最高溫度 %}
+                                            {% if min_temp.StartTime == time_data.StartTime and max_temp.StartTime == time_data.StartTime %}
+                                                {{ min_temp.ElementValue.0.MinTemperature }}°C ~ {{ max_temp.ElementValue.0.MaxTemperature }}°C
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </td>
+                                <!-- 相對濕度 -->
+                                <td class="py-3 px-4 border-t text-center">
+                                    {% for humidity in weather_info.平均相對濕度 %}
+                                        {% if humidity.StartTime == time_data.StartTime %}
+                                            {{ humidity.ElementValue.0.RelativeHumidity }}%
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                                <!-- 風速 -->
+                                <td class="py-3 px-4 border-t text-center">
+                                    {% for wind in weather_info.風速 %}
+                                        {% if wind.StartTime == time_data.StartTime %}
+                                            {{ wind.ElementValue.0.WindSpeed }} m/s
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                                <!-- 降雨機率 -->
+                                <td class="py-3 px-4 border-t text-center">
+                                    {% for pop in weather_info.12小時降雨機率 %}
+                                        {% if pop.StartTime == time_data.StartTime %}
+                                            {{ pop.ElementValue.0.ProbabilityOfPrecipitation }}%
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                                <!-- 紫外線指數 -->
+                                <td class="py-3 px-4 border-t text-center">
+                                    {% for uv in weather_info.紫外線指數 %}
+                                        {% if uv.StartTime == time_data.StartTime %}
+                                            {{ uv.ElementValue.0.UVIndex }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 移動版天氣預報卡片 -->
+        <div class="md:hidden space-y-4">
+            {% for weather_info in weather_data_list %}
+                {% for time_data in weather_info.天氣現象 %}
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <!-- 地區和時間 -->
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold text-gray-800">{{ weather_info.地區 }}</h2>
+                            <span class="text-gray-600">
+                                {{ time_data.StartTime|slice:"11:16" }} ~ {{ time_data.EndTime|slice:"11:16" }}
+                            </span>
+                        </div>
+                        
+                        <!-- 天氣現象 -->
+                        <div class="text-center mb-4">
+                            <span class="text-lg">{{ time_data.ElementValue.0.Weather }}</span>
+                        </div>
+
+                        <!-- 主要資訊 -->
+                        <div class="grid grid-cols-2 gap-4 mb-4">
+                            <!-- 溫度 -->
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <div class="text-sm text-blue-600 text-center">溫度</div>
+                                <div class="text-lg font-semibold text-center">
+                                    {% for min_temp in weather_info.最低溫度 %}
+                                        {% for max_temp in weather_info.最高溫度 %}
+                                            {% if min_temp.StartTime == time_data.StartTime and max_temp.StartTime == time_data.StartTime %}
+                                                {{ min_temp.ElementValue.0.MinTemperature }}°C ~ {{ max_temp.ElementValue.0.MaxTemperature }}°C
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- 降雨機率 -->
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <div class="text-sm text-blue-600 text-center">降雨機率</div>
+                                <div class="text-lg font-semibold text-center">
+                                    {% for pop in weather_info.12小時降雨機率 %}
+                                        {% if pop.StartTime == time_data.StartTime %}
+                                            {{ pop.ElementValue.0.ProbabilityOfPrecipitation }}%
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 次要資訊 -->
+                        <div class="grid grid-cols-3 gap-2">
+                            <!-- 相對濕度 -->
+                            <div class="bg-gray-50 p-2 rounded-lg text-center">
+                                <div class="text-xs text-gray-600">相對濕度</div>
+                                <div class="text-sm font-semibold">
+                                    {% for humidity in weather_info.平均相對濕度 %}
+                                        {% if humidity.StartTime == time_data.StartTime %}
+                                            {{ humidity.ElementValue.0.RelativeHumidity }}%
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- 風速 -->
+                            <div class="bg-gray-50 p-2 rounded-lg text-center">
+                                <div class="text-xs text-gray-600">風速</div>
+                                <div class="text-sm font-semibold">
+                                    {% for wind in weather_info.風速 %}
+                                        {% if wind.StartTime == time_data.StartTime %}
+                                            {{ wind.ElementValue.0.WindSpeed }} m/s
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <!-- 紫外線指數 -->
+                            <div class="bg-gray-50 p-2 rounded-lg text-center">
+                                <div class="text-xs text-gray-600">紫外線</div>
+                                <div class="text-sm font-semibold">
+                                    {% for uv in weather_info.紫外線指數 %}
+                                        {% if uv.StartTime == time_data.StartTime %}
+                                            {{ uv.ElementValue.0.UVIndex }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
-            </tbody>
-        </table>
+            {% endfor %}
+        </div>
     {% else %}
-        <p>無法獲取氣象資訊。</p>
+        <!-- 無法獲取天氣資訊時的錯誤訊息 -->
+        <p class="text-center text-red-500">無法獲取氣象資訊。</p>
     {% endif %}
 </body>
 </html>
