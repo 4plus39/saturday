@@ -69,7 +69,7 @@
                             <td class="py-3 px-4 border-t text-center">
                                 {% for uv in weather_info.紫外線指數 %}
                                     {% if uv.StartTime == time_data.StartTime %}
-                                        {{ uv.ElementValue.0.UVIndex }}
+                                        {{ uv.ElementValue.0.UVExposureLevel }}
                                     {% endif %}
                                 {% endfor %}
                             </td>
@@ -156,7 +156,7 @@
                             <div class="text-sm font-semibold">
                                 {% for uv in weather_info.紫外線指數 %}
                                     {% if uv.StartTime == time_data.StartTime %}
-                                        {{ uv.ElementValue.0.UVIndex }}
+                                        {{ uv.ElementValue.0.UVExposureLevel }}
                                     {% endif %}
                                 {% endfor %}
                             </div>
