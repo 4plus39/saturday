@@ -32,3 +32,14 @@ jobs:
           app-name: 'my-django-app-123'
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          app-settings: |
+            CWA_API_KEY=${{ secrets.CWA_API_KEY }}
+
+      - name: Set Azure App Settings
+        run: |
+          az webapp config appsettings set \
+            --name my-django-app-123 \
+            --resource-group my-django-app \
+            --settings \
+              CWA_API_KEY=${{ secrets.CWA_API_KEY }} \
+              OTHER_SETTING=value
