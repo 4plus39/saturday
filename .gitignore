@@ -6,7 +6,7 @@ staticfiles/
 .env
 .env.local
 .env.*.local
-*.env
+
 
 # Ignore Python compiled files
 __pycache__/
@@ -16,6 +16,4 @@ __pycache__/
 myenv/
 
 # ignore cache file
-cache/
-*.json
-weather_cache.json 
+cache/weather_cache.json 
