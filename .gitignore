@@ -1,5 +1,12 @@
 # Ignore SQLite database
 db.sqlite3
+staticfiles/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
 
 # Ignore Python compiled files
 __pycache__/
@@ -9,4 +16,6 @@ __pycache__/
 myenv/
 
 # ignore cache file
-cache/weather_cache.json 
+cache/
+*.json
+weather_cache.json 
