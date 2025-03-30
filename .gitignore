@@ -7,3 +7,6 @@ __pycache__/
 
 # Ignore directory
 myenv/
+
+# ignore cache file
+cache/weather_cache.json 
