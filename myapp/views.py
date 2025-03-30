@@ -1,8 +1,6 @@
 from django.shortcuts import render
-from .utils import get_next_saturday, fetch_weather_data
-
-# 氣象局 API 金鑰
-API_KEY = "CWA-C8895C3C-29ED-40AF-B3A1-0AC72BB0E2CA"
+from .utils import fetch_weather_data, get_next_saturday
+from django.conf import settings
 
 # 定義要查詢的地區資訊，包含資源ID、地區名稱和城市名稱
 LOCATIONS = [
@@ -16,12 +14,13 @@ LOCATIONS = [
 def combined_view(request):
     """
     組合視圖：顯示倒數計時和天氣預報
+    使用 settings.py 中的 API key
     """
     # 獲取下一個星期六的日期
     next_saturday = get_next_saturday()
     
     # 獲取天氣資料
-    weather_data_list = fetch_weather_data(LOCATIONS, next_saturday, API_KEY)
+    weather_data_list = fetch_weather_data(LOCATIONS, next_saturday, settings.CWA_API_KEY)
     
     # 準備傳遞給模板的資料
     context = {
