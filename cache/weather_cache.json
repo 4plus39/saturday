@@ -1,0 +1,870 @@
+{
+  "timestamp": "2025-03-30T00:54:25.385656",
+  "data": [
+    {
+      "平均溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Temperature": "22"
+            }
+          ]
+        }
+      ],
+      "最高溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxTemperature": "25"
+            }
+          ]
+        }
+      ],
+      "最低溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinTemperature": "17"
+            }
+          ]
+        }
+      ],
+      "平均露點溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "DewPoint": "15"
+            }
+          ]
+        }
+      ],
+      "平均相對濕度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "RelativeHumidity": "68"
+            }
+          ]
+        }
+      ],
+      "最高體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxApparentTemperature": "25"
+            }
+          ]
+        }
+      ],
+      "最低體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinApparentTemperature": "18"
+            }
+          ]
+        }
+      ],
+      "最大舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxComfortIndex": "22",
+              "MaxComfortIndexDescription": "舒適"
+            }
+          ]
+        }
+      ],
+      "最小舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinComfortIndex": "16",
+              "MinComfortIndexDescription": "稍有寒意"
+            }
+          ]
+        }
+      ],
+      "風速": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindSpeed": "3",
+              "BeaufortScale": "2"
+            }
+          ]
+        }
+      ],
+      "風向": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindDirection": "偏東風"
+            }
+          ]
+        }
+      ],
+      "12小時降雨機率": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "ProbabilityOfPrecipitation": "-"
+            }
+          ]
+        }
+      ],
+      "天氣現象": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Weather": "多雲時晴",
+              "WeatherCode": "03"
+            }
+          ]
+        }
+      ],
+      "紫外線指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "UVIndex": "5",
+              "UVExposureLevel": "中量級"
+            }
+          ]
+        }
+      ],
+      "天氣預報綜合描述": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WeatherDescription": "多雲時晴。溫度攝氏17至25度。稍有寒意至舒適。偏東風 風速2級(每秒3公尺)。相對濕度68%。"
+            }
+          ]
+        }
+      ],
+      "地區": "臺北市 中正區"
+    },
+    {
+      "平均溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Temperature": "21"
+            }
+          ]
+        }
+      ],
+      "最高溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxTemperature": "24"
+            }
+          ]
+        }
+      ],
+      "最低溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinTemperature": "17"
+            }
+          ]
+        }
+      ],
+      "平均露點溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "DewPoint": "15"
+            }
+          ]
+        }
+      ],
+      "平均相對濕度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "RelativeHumidity": "69"
+            }
+          ]
+        }
+      ],
+      "最高體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxApparentTemperature": "25"
+            }
+          ]
+        }
+      ],
+      "最低體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinApparentTemperature": "17"
+            }
+          ]
+        }
+      ],
+      "最大舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxComfortIndex": "22",
+              "MaxComfortIndexDescription": "舒適"
+            }
+          ]
+        }
+      ],
+      "最小舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinComfortIndex": "16",
+              "MinComfortIndexDescription": "稍有寒意"
+            }
+          ]
+        }
+      ],
+      "風速": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindSpeed": "3",
+              "BeaufortScale": "2"
+            }
+          ]
+        }
+      ],
+      "風向": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindDirection": "偏東風"
+            }
+          ]
+        }
+      ],
+      "12小時降雨機率": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "ProbabilityOfPrecipitation": "-"
+            }
+          ]
+        }
+      ],
+      "天氣現象": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Weather": "多雲",
+              "WeatherCode": "04"
+            }
+          ]
+        }
+      ],
+      "紫外線指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "UVIndex": "5",
+              "UVExposureLevel": "中量級"
+            }
+          ]
+        }
+      ],
+      "天氣預報綜合描述": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WeatherDescription": "多雲。溫度攝氏17至24度。稍有寒意至舒適。偏東風 風速2級(每秒3公尺)。相對濕度69%。"
+            }
+          ]
+        }
+      ],
+      "地區": "新北市 板橋區"
+    },
+    {
+      "平均溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Temperature": "20"
+            }
+          ]
+        }
+      ],
+      "最高溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxTemperature": "23"
+            }
+          ]
+        }
+      ],
+      "最低溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinTemperature": "16"
+            }
+          ]
+        }
+      ],
+      "平均露點溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "DewPoint": "15"
+            }
+          ]
+        }
+      ],
+      "平均相對濕度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "RelativeHumidity": "75"
+            }
+          ]
+        }
+      ],
+      "最高體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxApparentTemperature": "24"
+            }
+          ]
+        }
+      ],
+      "最低體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinApparentTemperature": "17"
+            }
+          ]
+        }
+      ],
+      "最大舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxComfortIndex": "21",
+              "MaxComfortIndexDescription": "舒適"
+            }
+          ]
+        }
+      ],
+      "最小舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinComfortIndex": "16",
+              "MinComfortIndexDescription": "稍有寒意"
+            }
+          ]
+        }
+      ],
+      "風速": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindSpeed": "3",
+              "BeaufortScale": "2"
+            }
+          ]
+        }
+      ],
+      "風向": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindDirection": "偏南風"
+            }
+          ]
+        }
+      ],
+      "12小時降雨機率": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "ProbabilityOfPrecipitation": "-"
+            }
+          ]
+        }
+      ],
+      "天氣現象": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Weather": "多雲",
+              "WeatherCode": "04"
+            }
+          ]
+        }
+      ],
+      "紫外線指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "UVIndex": "5",
+              "UVExposureLevel": "中量級"
+            }
+          ]
+        }
+      ],
+      "天氣預報綜合描述": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WeatherDescription": "多雲。溫度攝氏16至23度。稍有寒意至舒適。偏南風 風速2級(每秒3公尺)。相對濕度75%。"
+            }
+          ]
+        }
+      ],
+      "地區": "桃園市 中壢區"
+    },
+    {
+      "平均溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Temperature": "21"
+            }
+          ]
+        }
+      ],
+      "最高溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxTemperature": "23"
+            }
+          ]
+        }
+      ],
+      "最低溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinTemperature": "16"
+            }
+          ]
+        }
+      ],
+      "平均露點溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "DewPoint": "16"
+            }
+          ]
+        }
+      ],
+      "平均相對濕度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "RelativeHumidity": "77"
+            }
+          ]
+        }
+      ],
+      "最高體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxApparentTemperature": "24"
+            }
+          ]
+        }
+      ],
+      "最低體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinApparentTemperature": "17"
+            }
+          ]
+        }
+      ],
+      "最大舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxComfortIndex": "21",
+              "MaxComfortIndexDescription": "舒適"
+            }
+          ]
+        }
+      ],
+      "最小舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinComfortIndex": "16",
+              "MinComfortIndexDescription": "稍有寒意"
+            }
+          ]
+        }
+      ],
+      "風速": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindSpeed": "3",
+              "BeaufortScale": "2"
+            }
+          ]
+        }
+      ],
+      "風向": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindDirection": "偏北風"
+            }
+          ]
+        }
+      ],
+      "12小時降雨機率": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "ProbabilityOfPrecipitation": "-"
+            }
+          ]
+        }
+      ],
+      "天氣現象": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Weather": "多雲",
+              "WeatherCode": "04"
+            }
+          ]
+        }
+      ],
+      "紫外線指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "UVIndex": "5",
+              "UVExposureLevel": "中量級"
+            }
+          ]
+        }
+      ],
+      "天氣預報綜合描述": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WeatherDescription": "多雲。溫度攝氏16至23度。稍有寒意至舒適。偏北風 風速2級(每秒3公尺)。相對濕度77%。"
+            }
+          ]
+        }
+      ],
+      "地區": "新竹市 東區"
+    },
+    {
+      "平均溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Temperature": "21"
+            }
+          ]
+        }
+      ],
+      "最高溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxTemperature": "24"
+            }
+          ]
+        }
+      ],
+      "最低溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinTemperature": "16"
+            }
+          ]
+        }
+      ],
+      "平均露點溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "DewPoint": "17"
+            }
+          ]
+        }
+      ],
+      "平均相對濕度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "RelativeHumidity": "76"
+            }
+          ]
+        }
+      ],
+      "最高體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxApparentTemperature": "26"
+            }
+          ]
+        }
+      ],
+      "最低體感溫度": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinApparentTemperature": "17"
+            }
+          ]
+        }
+      ],
+      "最大舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MaxComfortIndex": "22",
+              "MaxComfortIndexDescription": "舒適"
+            }
+          ]
+        }
+      ],
+      "最小舒適度指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "MinComfortIndex": "16",
+              "MinComfortIndexDescription": "稍有寒意"
+            }
+          ]
+        }
+      ],
+      "風速": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindSpeed": "2",
+              "BeaufortScale": "2"
+            }
+          ]
+        }
+      ],
+      "風向": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WindDirection": "偏南風"
+            }
+          ]
+        }
+      ],
+      "12小時降雨機率": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "ProbabilityOfPrecipitation": "-"
+            }
+          ]
+        }
+      ],
+      "天氣現象": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "Weather": "多雲",
+              "WeatherCode": "04"
+            }
+          ]
+        }
+      ],
+      "紫外線指數": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "UVIndex": "5",
+              "UVExposureLevel": "中量級"
+            }
+          ]
+        }
+      ],
+      "天氣預報綜合描述": [
+        {
+          "StartTime": "2025-04-05T06:00:00+08:00",
+          "EndTime": "2025-04-05T18:00:00+08:00",
+          "ElementValue": [
+            {
+              "WeatherDescription": "多雲。溫度攝氏16至24度。稍有寒意至舒適。偏南風 風速2級(每秒2公尺)。相對濕度76%。"
+            }
+          ]
+        }
+      ],
+      "地區": "苗栗縣 頭份市"
+    }
+  ]
+}
