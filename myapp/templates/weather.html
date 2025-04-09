@@ -53,7 +53,11 @@
                             <td class="py-3 px-4 border-t text-center">
                                 {% for wind in weather_info.風速 %}
                                     {% if wind.StartTime == time_data.StartTime %}
-                                        {{ wind.ElementValue.0.WindSpeed }} m/s
+                                        {% if wind.ElementValue.0.WindDescription %}
+                                            {{ wind.ElementValue.0.WindDescription }}
+                                        {% else %}
+                                            {{ wind.ElementValue.0.WindSpeed }} m/s
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             </td>
@@ -145,7 +149,11 @@
                             <div class="text-sm font-semibold">
                                 {% for wind in weather_info.風速 %}
                                     {% if wind.StartTime == time_data.StartTime %}
-                                        {{ wind.ElementValue.0.WindSpeed }} m/s
+                                        {% if wind.ElementValue.0.WindDescription %}
+                                            {{ wind.ElementValue.0.WindDescription }}
+                                        {% else %}
+                                            {{ wind.ElementValue.0.WindSpeed }} m/s
+                                        {% endif %}
                                     {% endif %}
                                 {% endfor %}
                             </div>

@@ -9,6 +9,41 @@ CACHE_DIR = "cache"
 WEATHER_CACHE_FILE = os.path.join(CACHE_DIR, "weather_cache.json")
 CACHE_DURATION = datetime.timedelta(hours=1)  # 緩存有效期為1小時
 
+def convert_wind_speed_to_description(wind_speed):
+    """
+    將風速(m/s)轉換為葡式風級的中文描述
+    """
+    try:
+        wind_speed = float(wind_speed)
+        if wind_speed < 0.3:
+            return "無風"
+        elif wind_speed < 1.6:
+            return "軟風"
+        elif wind_speed < 3.4:
+            return "輕風"
+        elif wind_speed < 5.5:
+            return "微風"
+        elif wind_speed < 8.0:
+            return "和風"
+        elif wind_speed < 10.8:
+            return "清風"
+        elif wind_speed < 13.9:
+            return "強風"
+        elif wind_speed < 17.2:
+            return "疾風"
+        elif wind_speed < 20.8:
+            return "大風"
+        elif wind_speed < 24.5:
+            return "烈風"
+        elif wind_speed < 28.5:
+            return "狂風"
+        elif wind_speed < 32.7:
+            return "暴風"
+        else:
+            return "颶風"
+    except (ValueError, TypeError):
+        return "無風"
+
 def ensure_cache_dir():
     """確保緩存目錄存在"""
     if not os.path.exists(CACHE_DIR):
@@ -58,6 +93,43 @@ def get_next_saturday() -> datetime.datetime:
     next_saturday = now.replace(hour=0, minute=0, second=0, microsecond=0) + datetime.timedelta(days=days_until_saturday)
     return next_saturday
 
+def process_wind_data(weather_info: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    處理天氣資料中的風速資訊，添加風力描述
+    
+    Args:
+        weather_info (Dict[str, Any]): 天氣資訊字典
+    
+    Returns:
+        Dict[str, Any]: 處理後的天氣資訊字典
+    """
+    if "風速" in weather_info:
+        print(f"處理風速數據: {weather_info['風速']}")  # 調試信息
+        for wind_data in weather_info["風速"]:
+            if "ElementValue" in wind_data and len(wind_data["ElementValue"]) > 0:
+                # 檢查 ElementValue 的結構
+                print(f"ElementValue 結構: {wind_data['ElementValue']}")
+                
+                # 獲取風速值
+                wind_speed = wind_data["ElementValue"][0].get("WindSpeed")
+                print(f"風速值: {wind_speed}")  # 調試信息
+                
+                if wind_speed is not None:
+                    try:
+                        # 確保風速值是浮點數
+                        wind_speed = float(wind_speed)
+                        wind_description = convert_wind_speed_to_description(wind_speed)
+                        print(f"風力描述: {wind_description}")  # 調試信息
+                        
+                        # 添加風力描述到數據中
+                        if "ElementValue" in wind_data and len(wind_data["ElementValue"]) > 0:
+                            wind_data["ElementValue"][0]["WindDescription"] = wind_description
+                            print(f"更新後的 ElementValue: {wind_data['ElementValue']}")  # 調試信息
+                    except (ValueError, TypeError) as e:
+                        print(f"轉換風速時發生錯誤: {str(e)}")
+                        wind_data["ElementValue"][0]["WindDescription"] = "無風"
+    return weather_info
+
 def fetch_weather_data(locations: List[Dict[str, str]], next_saturday: datetime.datetime, api_key: str) -> List[Dict[str, Any]]:
     """
     從氣象局 API 獲取天氣資料，優先使用緩存
@@ -74,7 +146,11 @@ def fetch_weather_data(locations: List[Dict[str, str]], next_saturday: datetime.
     cached_data = load_weather_cache()
     if cached_data is not None:
         print("使用緩存的天氣資料")
-        return cached_data
+        # 處理緩存中的風速數據
+        processed_data = []
+        for weather_info in cached_data:
+            processed_data.append(process_wind_data(weather_info))
+        return processed_data
     
     print("緩存不存在或已過期，從 API 獲取新資料")
     
@@ -106,9 +182,14 @@ def fetch_weather_data(locations: List[Dict[str, str]], next_saturday: datetime.
                         element_name = element.get("ElementName")
                         time_data = element.get("Time", [])
                         weather_info[element_name] = time_data
+                        print(f"天氣元素: {element_name}, 數據: {time_data}")  # 調試信息
 
                     # 加入地區名稱資訊
                     weather_info["地區"] = f"{loc['city']} {loc['location_name']}"
+                    
+                    # 處理風速資料
+                    weather_info = process_wind_data(weather_info)
+                    
                     weather_data_list.append(weather_info)
 
         except requests.exceptions.RequestException as e:
