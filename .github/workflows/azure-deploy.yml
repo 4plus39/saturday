@@ -2,38 +2,44 @@ name: Deploy Django to Azure
 
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:
+    branches:
+      - "main"  # 每當推送到 main 分支時啟動
+  workflow_dispatch:  # 允許手動觸發工作流程
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4 
+    runs-on: ubuntu-latest  # 在 Ubuntu 最新版本中執行
 
+    steps:
+      # 步驟 1：檢出代碼
+      - uses: actions/checkout@v4
+        name: Checkout code
+
+      # 步驟 2：設置 Python 3.9
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
+      # 步驟 3：安裝依賴
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           python manage.py collectstatic --noinput
 
-      - name: Run makemigrations
+      # 步驟 4：執行遷移命令
+      - name: Apply database migrations
         run: |
-          python manage.py makemigrations  # 生成遷移檔案
+          python manage.py makemigrations  # 生成遷移文件（如果有新的變更）
+          python manage.py migrate --noinput  # 應用遷移到資料庫
 
-      - name: Run migrations
-        run: |
-          python manage.py migrate --noinput  # 執行遷移，更新資料庫結構
-
+      # 步驟 5：執行測試（可選）
       - name: Run tests
         run: |
           python manage.py test
 
+      # 步驟 6：部署到 Azure Web App
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
@@ -41,7 +47,8 @@ jobs:
           slot-name: 'production'
           publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
 
-      - name: Azure Login  # 這是新加的步驟
+      # 步驟 7：登入 Azure 並設置應用設定（可選）
+      - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
