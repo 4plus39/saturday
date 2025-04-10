@@ -1,0 +1,35 @@
+{% load tz %}
+<!-- 活動資訊 -->
+<div class="mt-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4">訪問記錄</h2>
+    <p class="text-center text-gray-600 mb-4">以下是最近的訪客 IP 訪問記錄：</p>
+    <p class="text-center text-gray-600 mb-4">共 {{ visitors.count }} 筆記錄</p> 
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <table class="min-w-full">
+            <thead class="bg-gray-800 text-white">
+                <tr>
+                    <th class="py-3 px-4 text-center">IP 地址</th>
+                    <th class="py-3 px-4 text-center">主機名稱</th>
+                    <th class="py-3 px-4 text-center">位置</th>
+                    <th class="py-3 px-4 text-center">用戶代理</th>
+                    <!-- <th class="py-3 px-4 text-center">路徑</th> -->
+                    <th class="py-3 px-4 text-center">時間</th>
+                </tr>
+            </thead>
+            <tbody class="text-gray-700">
+                {% for visitor in visitors %}
+                    <tr class="hover:bg-gray-50 transition-colors">
+                        <td class="py-3 px-4 border-t text-center">{{ visitor.ip_address }}</td>
+                        <td class="py-3 px-4 border-t text-center">{{ visitor.hostname }}</td>
+                        <td class="py-3 px-4 border-t text-center">{{ visitor.location }}</td>
+                        <td class="py-3 px-4 border-t text-center">{{ visitor.user_agent }}</td>
+                        <!-- <td class="py-3 px-4 border-t text-center">{{ visitor.path }}</td> -->
+                        <td class="py-3 px-4 border-t text-center">
+                            {{ visitor.timestamp|localtime|date:"Y/m/d H:i:s" }}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div> 

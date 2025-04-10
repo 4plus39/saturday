@@ -17,11 +17,12 @@
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-6xl mx-auto">
-        <!-- 網站標題 -->
-        <!-- <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">週末氣象站</h1> -->
+        <!-- 引入倒數計時器、天氣、事件部分 -->
         {% include "countdown.html" %}
         {% include "weather.html" %}
         {% include "events.html" %}
+        {% include "visitor_log.html" %}
+        
     </div>
 </body>
 </html>

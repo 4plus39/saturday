@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from .utils import fetch_weather_data, get_next_saturday
 from django.conf import settings
+from .models import VisitorIP
+import pytz
+
+
 
 # 定義要查詢的地區資訊，包含資源ID、地區名稱和城市名稱
 LOCATIONS = [
@@ -21,12 +25,25 @@ def combined_view(request):
     
     # 獲取天氣資料
     weather_data_list = fetch_weather_data(LOCATIONS, next_saturday, settings.CWA_API_KEY)
+
+    # 設定台北時區
+    taipei_tz = pytz.timezone('Asia/Taipei')
+    
+    # 確保將時間轉換為台北時間
+    for visitor in VisitorIP.objects.all():
+        visitor.timestamp = visitor.timestamp.astimezone(taipei_tz)
     
     # 準備傳遞給模板的資料
     context = {
         "next_saturday": next_saturday.isoformat(),
         "weather_data_list": weather_data_list,
         "target_date": next_saturday.strftime("%Y/%m/%d"),
+        "visitors": VisitorIP.objects.all(),
     }
+    
 
     return render(request, "combined.html", context)
+
+def visitor_log(request):
+    visitors = VisitorIP.objects.order_by('-timestamp')[:50]  # 最新 50 筆
+    return render(request, 'visitor_log.html', {'visitors': visitors})
