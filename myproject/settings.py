@@ -135,3 +135,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # 氣象局 API 設定
 CWA_API_KEY = os.getenv('CWA_API_KEY')
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://my-django-app-123.azurewebsites.net',
+]
