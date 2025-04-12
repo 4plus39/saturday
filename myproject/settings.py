@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-y9=zue2t9)bvs55546gmwcu*hb7lrxkx+@q^z*cidc(w!@i!so
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['timmyzone.com', 'www.timmyzone.com']
 
 
 # Application definition
@@ -136,8 +136,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CWA_API_KEY = os.getenv('CWA_API_KEY')
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://my-django-app-123.azurewebsites.net',
+    'https://timmyzone.com',  # 將你的網站域名加到這裡
 ]
+
 CSRF_COOKIE_SECURE = True  # 在生產環境中使用 HTTPS 時啟用此選項
 SESSION_COOKIE_SECURE = True  # 在生產環境中使用 HTTPS 時啟用此選項
 CSRF_COOKIE_SAMESITE = 'None'  # 在生產環境中使用 HTTPS 時啟用此選項
