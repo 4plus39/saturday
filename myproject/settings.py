@@ -138,3 +138,9 @@ CWA_API_KEY = os.getenv('CWA_API_KEY')
 CSRF_TRUSTED_ORIGINS = [
     'https://my-django-app-123.azurewebsites.net',
 ]
+CSRF_COOKIE_SECURE = True  # 在生產環境中使用 HTTPS 時啟用此選項
+SESSION_COOKIE_SECURE = True  # 在生產環境中使用 HTTPS 時啟用此選項
+CSRF_COOKIE_SAMESITE = 'None'  # 在生產環境中使用 HTTPS 時啟用此選項
+SESSION_COOKIE_SAMESITE = 'None'  # 在生產環境中使用 HTTPS 時啟用此選項
+CSRF_COOKIE_HTTPONLY = True  # 在生產環境中使用 HTTPS 時啟用此選項
+SESSION_COOKIE_HTTPONLY = True  # 在生產環境中使用 HTTPS 時啟用此選項
