@@ -28,9 +28,12 @@ def combined_view(request):
 
     # 設定台北時區
     taipei_tz = pytz.timezone('Asia/Taipei')
+
+    # 取得最新的五筆資料（timestamp 降冪排序）
+    visitors = VisitorIP.objects.order_by('-timestamp')[:5]
     
-    # 確保將時間轉換為台北時間
-    for visitor in VisitorIP.objects.all():
+    # 將每一筆的 timestamp 轉換成台北時間
+    for visitor in visitors:
         visitor.timestamp = visitor.timestamp.astimezone(taipei_tz)
     
     # 準備傳遞給模板的資料
@@ -41,9 +44,4 @@ def combined_view(request):
         "visitors": VisitorIP.objects.all(),
     }
     
-
     return render(request, "combined.html", context)
-
-def visitor_log(request):
-    visitors = VisitorIP.objects.order_by('-timestamp')[:5]  # 最新 50 筆
-    return render(request, 'visitor_log.html', {'visitors': visitors})
