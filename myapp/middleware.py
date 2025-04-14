@@ -27,16 +27,14 @@ class VisitorIPMiddleware:
         # 獲取台北時間
         current_time_taipei = timezone.now().astimezone(taipei_tz)
 
-        # 檢查是否已經有相同 IP 的資料
-        visitor, created = VisitorIP.objects.update_or_create(
-            ip_address=ip,  # 根據 IP 查詢
-            defaults={
-                'hostname': hostname,
-                'location': location,
-                'user_agent': user_agent,
-                'path': path,
-                'timestamp': current_time_taipei,  # 使用台北時間
-            }
+        # 每次訪問都新增一筆紀錄
+        VisitorIP.objects.create(
+            ip_address=ip,
+            hostname=hostname,
+            location=location,
+            user_agent=user_agent,
+            path=path,
+            timestamp=current_time_taipei,
         )
 
         return response
@@ -48,8 +46,7 @@ class VisitorIPMiddleware:
         else:
             ip = request.META.get('REMOTE_ADDR')
         
-        # 如果帶有 port，就把它去掉
-        return ip.split(':')[0]
+        return ip.split(':')[0]  # 去掉可能的 port
 
     def get_hostname(self, ip):
         try:

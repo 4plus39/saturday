@@ -45,5 +45,5 @@ def combined_view(request):
     return render(request, "combined.html", context)
 
 def visitor_log(request):
-    visitors = VisitorIP.objects.order_by('-timestamp')[:50]  # 最新 50 筆
+    visitors = VisitorIP.objects.order_by('-timestamp')[:5]  # 最新 50 筆
     return render(request, 'visitor_log.html', {'visitors': visitors})
