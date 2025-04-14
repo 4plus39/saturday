@@ -5,7 +5,7 @@ from django.db import models
 # myapp/models.py
 
 class VisitorIP(models.Model):
-    ip_address = models.GenericIPAddressField(unique=True)  # 設定唯一約束
+    ip_address = models.GenericIPAddressField()
     hostname = models.CharField(max_length=255, blank=True, null=True)
     location = models.CharField(max_length=255, blank=True, null=True)
     user_agent = models.CharField(max_length=255, blank=True, null=True)
