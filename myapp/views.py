@@ -41,7 +41,7 @@ def combined_view(request):
         "next_saturday": next_saturday.isoformat(),
         "weather_data_list": weather_data_list,
         "target_date": next_saturday.strftime("%Y/%m/%d"),
-        "visitors": VisitorIP.objects.all(),
+        "visitors": visitors,  # 用上面排好、只取5筆的 visitors
     }
     
     return render(request, "combined.html", context)
