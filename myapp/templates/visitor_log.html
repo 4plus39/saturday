@@ -4,7 +4,7 @@
     <h2 class="text-2xl font-bold mb-4">訪問記錄</h2>
     <!-- <p class="text-center text-gray-600 mb-4">以下是最近的訪客 IP 訪問記錄：</p> -->
     <!-- <p class="text-center text-gray-600 mb-4">共 {{ visitors.count }} 筆記錄</p>  -->
-    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="hidden md:block bg-white shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full">
             <thead class="bg-gray-800 text-white">
                 <tr>
@@ -32,4 +32,39 @@
             </tbody>
         </table>
     </div>
-</div> 
+</div>
+
+<!-- 移動版訪問記錄卡片 -->
+<div class="md:hidden space-y-4">
+    {% for visitor in visitors %}
+        <div class="bg-white rounded-lg shadow-md p-4">
+            <!-- IP 地址 -->
+            <div class="mb-2">
+                <span class="text-sm text-gray-600">IP 地址:</span>
+                <span class="text-lg font-semibold text-gray-800">{{ visitor.ip_address }}</span>
+            </div>
+            <!-- 主機名稱 -->
+            <div class="mb-2">
+                <span class="text-sm text-gray-600">主機名稱:</span>
+                <span class="text-lg font-semibold text-gray-800">{{ visitor.hostname }}</span>
+            </div>
+            <!-- 位置 -->
+            <div class="mb-2">
+                <span class="text-sm text-gray-600">位置:</span>
+                <span class="text-lg font-semibold text-gray-800">{{ visitor.location }}</span>
+            </div>
+            <!-- 用戶代理 -->
+            <div class="mb-2">
+                <span class="text-sm text-gray-600">用戶代理:</span>
+                <span class="text-sm text-gray-800">{{ visitor.user_agent }}</span>
+            </div>
+            <!-- 訪問時間 -->
+            <div>
+                <span class="text-sm text-gray-600">時間:</span>
+                <span class="text-lg font-semibold text-gray-800">
+                    {{ visitor.timestamp|localtime|date:"Y/m/d H:i:s" }}
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
