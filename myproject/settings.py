@@ -30,12 +30,7 @@ SECRET_KEY = 'django-insecure-y9=zue2t9)bvs55546gmwcu*hb7lrxkx+@q^z*cidc(w!@i!so
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    'timmyzone.com',        # azure / production
-    'www.timmyzone.com',    # azure / production
-    '127.0.0.1',            # local / development
-    '192.168.56.1',         # virtualbox / testing
-]
+ALLOWED_HOSTS = ['timmyzone.com', 'www.timmyzone.com', '127.0.0.1']
 
 
 # Application definition
