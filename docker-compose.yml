@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=1
+      - CWA_API_KEY=CWA-C8895C3C-29ED-40AF-B3A1-0AC72BB0E2CA  # 如果你有環境變數
+
